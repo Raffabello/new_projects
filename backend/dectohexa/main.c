@@ -41,13 +41,18 @@ int main(void)
     
     //flip array
     int flipped_hexa_arr[DEFAULT_SIZE];
+    int j = 0;
     for(int i = iteraction; i >= 0; i --)
-        printf("flipped_hexa_arr[%d] = %d" nl, iteraction, hexa_arr_tmp[i]);
+    {
+        flipped_hexa_arr[j] = hexa_arr_tmp[i];
+        printf("flipped_hexa_arr[%d] = %d" nl, j, flipped_hexa_arr[j]);
+        j++;
+    }
     
-    /*
+    
     //10 -> A 11 -> B 12 -> C 13 -> D 14 -> E 15 F -> 16
     char hexa_code[iteraction];
-    for(int i = 0; i < iteraction; i ++)
+    for(int i = 0; i <= iteraction; i ++)
     {
         if(flipped_hexa_arr[i] == 10)
             hexa_code[i] = 'A';
@@ -62,13 +67,13 @@ int main(void)
         else if(flipped_hexa_arr[i] == 15)
             hexa_code[i] = 'F';
         else 
-            hexa_code[i] = flipped_hexa_arr[i];
+            hexa_code[i] = flipped_hexa_arr[i] + '0';
     }
    
 
     //output
-    for(int i = 0; i < iteraction; i ++)
+    for(int i = 0; i <= iteraction; i ++)
         printf("hexa_code[%d] = %c" nl, i, hexa_code[i]);
-     */
+     
     return 0;
 }
