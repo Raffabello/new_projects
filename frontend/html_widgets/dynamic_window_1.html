@@ -1,1 +1,94 @@
+<!DOCTYPE html>
+<!--
+Developer: Raffabello
+Explanation:
+This is a simple dynamic HTML window that moves from top to the center, and stays fixed until
+the user clicks the button "Choose a file", when the button is clicked, the window
+moves back to the top and disappears.
 
+You can use it as a component of your website, the window is absolutely positioned so it won t
+interact with the layout flow.
+-->
+<html>  
+<head>
+  <style>
+  
+      #msg-box-container
+      {
+          position:absolute;
+          left:50%;
+          top:0%;
+          transform:translateX(-50%);
+  
+          height:110px;
+          width:360px;
+          padding:20px;
+  
+          opacity:0%;
+  
+          /*style*/
+          border-radius:5px;
+          background-color: rgb(55, 196, 0);
+          box-shadow:#2e2e2e 7px 7px 0px;
+  
+          transition:top .5s ease, opacity .5s ease;
+      }
+  
+      #msg-box-container-text
+      {
+          color:white;
+          font-family:Impact;
+          font-size:18px;
+      }
+  
+      #msg-box-select-button
+      {
+          position:relative;
+          left:65%;
+          top:40%;
+          background-color:#2e2e2e;
+          font-family:Impact;
+          font-size:16px;
+          color:white;
+          border-radius:8px;
+  
+          padding:12px;
+          cursor:pointer;
+  
+      }
+  
+      #friendly-developer-kit
+      {
+          height:500px;
+          width:350px;
+  
+          background-color:grey;
+          opacity:70%;
+      }
+  
+  </style>
+</head>
+    <body>
+        <div id="msg-box-container">
+            <span id="msg-box-container-text">Please select a file you would like to upload.</span>
+            <input id="msg-box-select-button" type="button" value="Choose a file" />
+        </div>
+    </body>
+  
+    <script>
+        let msgbox = document.getElementById("msg-box-container");
+        let msgbox_select_button = document.getElementById("msg-box-select-button");
+
+        window.addEventListener("load", () => {
+            //when the window loads.
+            msgbox.style.top = "50%";
+            msgbox.style.opacity = "100%";
+            msgbox.style.transform = "translate(-50%,-50%)";
+        });
+
+        msgbox_select_button.addEventListener("click", () =>{
+            msgbox.style.top = "0%";
+            msgbox.style.opacity = "0%";
+        })     
+    </script>
+</html>
